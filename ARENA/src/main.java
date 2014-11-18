@@ -1,6 +1,6 @@
 
 public class Main {
-	//ï¿½ï¿½ï¿½ï¿½ï¿½h? Maddafakka
+	//ddmmååMaddafakka
 	
 	public static void main(String[] args) {
 		// test
