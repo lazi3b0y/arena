@@ -1,5 +1,12 @@
 package GUI;
 
-public class LoginWindow {
+import javax.swing.*;
 
+public class LoginWindow {
+	private JFrame loginWindow;
+	
+	public void LoginWindow() {
+		loginWindow = new JFrame();
+		
+	}
 }
