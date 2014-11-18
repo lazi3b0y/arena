@@ -1,11 +1,15 @@
 package Client;
 
 import GUI.LoginWindow;
+import GUI.MainFrame;
+import javax.swing.*;
 
 public class Main {
-	LoginWindow login = new LoginWindow();
 	
 	public static void main(String[] args) {
+		
+		LoginWindow login = new LoginWindow();
+		MainFrame Arena = new MainFrame();
 		
 	}
 }
