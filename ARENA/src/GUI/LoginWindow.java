@@ -23,14 +23,10 @@ public class LoginWindow extends JFrame implements ActionListener{
 	private JTextField usernameField;
 	private JPasswordField passwordField;
 	private JButton login;
-	private GridBagConstraints cons;
-	
-	private ActionEvent e;
 	
 	public LoginWindow() {
 		super("Login");
 		contentPane = new JPanel(new BorderLayout());
-		cons = new GridBagConstraints();
 		usernameField = new JTextField(15);
 		passwordField = new JPasswordField(15);
 		
@@ -54,7 +50,7 @@ public class LoginWindow extends JFrame implements ActionListener{
 		setVisible(true);
 		setSize(300, 150);
 		setResizable(false);
-		//setLocationRelativeTo(null);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
@@ -63,7 +59,7 @@ public class LoginWindow extends JFrame implements ActionListener{
 		char[] password;
 		username = usernameField.getText();
 		password = passwordField.getPassword();
-		System.out.println(username + " ");
+		System.out.println(username);
 		for(int i = 0; i < password.length; i++) {
 			System.out.print(password[i]);
 		}
