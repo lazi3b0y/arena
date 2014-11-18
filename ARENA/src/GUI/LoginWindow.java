@@ -7,6 +7,5 @@ public class LoginWindow {
 	
 	public void LoginWindow() {
 		loginWindow = new JFrame();
-		
 	}
 }
