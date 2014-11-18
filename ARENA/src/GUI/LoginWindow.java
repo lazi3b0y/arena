@@ -6,11 +6,14 @@ import javax.swing.*;
 public class LoginWindow extends JFrame{
 	private JPanel container;
 	private JTextField username;
+	private JTextField password;
 	
-	public void LoginWindow() {
+	public LoginWindow() {
 		container = new JPanel(new BorderLayout());
 		username = new JTextField();
-		container.add(username);
+		password = new JTextField();
+		container.add(username, BorderLayout.NORTH);
+		container.add(password, BorderLayout.SOUTH);
 		add(container);
 		setVisible(true);
 		setSize(300, 300);
