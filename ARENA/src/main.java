@@ -1,4 +1,8 @@
 
-public class main {
-	//öööööh? Maddafakka
+public class Main {
+	//ï¿½ï¿½ï¿½ï¿½ï¿½h? Maddafakka
+	
+	public static void main(String[] args) {
+		// test
+	}
 }
