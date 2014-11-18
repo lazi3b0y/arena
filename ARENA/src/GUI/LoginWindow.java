@@ -1,11 +1,15 @@
 package GUI;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class LoginWindow {
-	private JFrame loginWindow;
+public class LoginWindow extends JFrame{
+	private JPanel container;
 	
 	public void LoginWindow() {
-		loginWindow = new JFrame();
+		setVisible(true);
+		setSize(300, 300);
+		container = new JPanel(new BorderLayout());
 	}
 }
