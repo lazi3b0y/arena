@@ -1,7 +1,6 @@
 package Client;
 
-import GUI.LoginWindow;
-import GUI.MainFrame;
+import GUI.*;
 import javax.swing.*;
 
 public class Main {
