@@ -8,6 +8,7 @@ public class GamesPanel extends JPanel{
 	private JLabel g1, g2, g3, g4, g5;
 	
 	public GamesPanel() {
+		//1eakjfhkjghygfs
 		setLayout(null);
 		game1 = new JButton("1");
 		game1.setBounds(550, 0, 50, 50);
