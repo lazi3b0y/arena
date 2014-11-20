@@ -13,11 +13,8 @@ import javax.swing.JTabbedPane;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	GridBagConstraints cons;
 	JPanel contentPane;
-	JPanel topBar;
-	JTabbedPane tabPanel;
-	JButton Games, News, Profile, logOut, testKnapp;
+	JButton Games, News, Profile, logOut;
 	JLabel ads;
 	ImageIcon adsImage;
 	GamesPanel gamesPanel;
@@ -26,12 +23,12 @@ public class MainFrame extends JFrame {
 
 	public MainFrame() {
 		super("ARENA");
-		adsImage = new ImageIcon("src/GUI/ads.jpg");
+		adsImage = new ImageIcon("src/GUI/ads.png");
 		Games = new JButton("Games");
 		News = new JButton("News");
 		Profile = new JButton("Profile");
 		logOut = new JButton("Log out");
-		ads = new JLabel(adsImage/*"Advertisementt", SwingConstants.CENTER*/);
+		ads = new JLabel(adsImage/*"Advertisement", SwingConstants.CENTER*/);
 		contentPane = new JPanel();
 		gamesPanel = new GamesPanel();
 		newsPanel = new NewsPanel();
@@ -39,16 +36,18 @@ public class MainFrame extends JFrame {
 		
 		Games.setBounds(0, 0, 200, 50);
 		add(Games);
-		News.setBounds(200,0,200,50);
+		News.setBounds(200, 0, 200, 50);
 		add(News);
 		Profile.setBounds(400, 0, 200, 50);
 		add(Profile);
 		logOut.setBounds(600, 0, 200, 50);
 		add(logOut);
-		ads.setBounds(600, 50, 200, 350);
+		ads.setBounds(600, 50, 200, 450);
 		add(ads);
-		contentPane.setBounds(0, 50, 600, 450);
-		contentPane.add(gamesPanel);
+		gamesPanel.setBounds(0, 50, 600, 450);
+		newsPanel.setBounds(0, 50, 600, 450);
+		profilePanel.setBounds(0, 50, 600, 450);
+		add(gamesPanel);
 		add(contentPane);
 		
 		ActionListeners();
@@ -64,31 +63,35 @@ public class MainFrame extends JFrame {
 		
 		Games.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contentPane.removeAll();
-				contentPane.revalidate();
-				contentPane.repaint();
-				contentPane.add(gamesPanel);
+				remove(newsPanel);
+				remove(profilePanel);
+				add(gamesPanel);
+				revalidate();
+				repaint();
 			}
 		});
 		News.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contentPane.removeAll();
-				contentPane.revalidate();
-				contentPane.repaint();
-				contentPane.add(newsPanel);
+				remove(profilePanel);
+				remove(gamesPanel);
+				add(newsPanel);
+				revalidate();
+				repaint();
 			}
 		});
 		Profile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contentPane.removeAll();
-				contentPane.revalidate();
-				contentPane.repaint();
-				contentPane.add(profilePanel);
+				remove(gamesPanel);
+				remove(newsPanel);
+				add(profilePanel);
+				revalidate();
+				repaint();
 			}
 		});
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//LoggaUtDelen
+				dispose();
 			}
 		});
 		

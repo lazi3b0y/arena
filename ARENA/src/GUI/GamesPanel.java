@@ -4,28 +4,36 @@ import java.awt.*;
 import javax.swing.*;
 
 public class GamesPanel extends JPanel{
-	private static final long serialVersionUID = 1L;
-	private JPanel mainPanel = new JPanel();
-	private final Dimension SIZE_PANEL = new Dimension(667, 500);
-	private JButton test2 = new JButton("1");
-	private JButton test3 = new JButton("2");
-	private JButton test4 = new JButton("3");
-	private JButton test5 = new JButton("4");
-	private JLabel testa  = new JLabel("ett spel man kan spela");
-	JPanel contentPane    = new JPanel(new BorderLayout());
-	JPanel textFields 	  = new JPanel(new BorderLayout());
+	private JButton game1, game2, game3, game4;
+	private JLabel g1, g2, g3, g4, g5;
 	
 	public GamesPanel() {
-		mainPanel.setLayout(new GridLayout(5,0));
-	 	mainPanel.add(test2);
-	 	mainPanel.add(test3);
-	 	mainPanel.add(test4);
-	 	mainPanel.add(test5);
-	 	textFields.add(testa);
-	 	mainPanel.setSize(50, 50);
+		setLayout(null);
+		game1 = new JButton("1");
+		game1.setBounds(550, 0, 50, 50);
+		game2 = new JButton("2");
+		game2.setBounds(550, 50, 50, 50);
+		game3 = new JButton("3");
+		game3.setBounds(550, 100, 50, 50);
+		game4 = new JButton("4");
+		game4.setBounds(550, 150, 50, 50);
+		g1  = new JLabel("Game 1 ", SwingConstants.CENTER);
+		g1.setBounds(0, 0, 80, 50);
+		g2  = new JLabel("Game 2 ", SwingConstants.CENTER);
+		g2.setBounds(0, 50, 80, 50);
+		g3  = new JLabel("Game 3 ", SwingConstants.CENTER);
+		g3.setBounds(0, 100, 80, 50);
+		g4  = new JLabel("Game 4 ", SwingConstants.CENTER);
+		g4.setBounds(0, 150, 80, 50);
+	 	add(game1);
+	 	add(game2);
+	 	add(game3);
+	 	add(game4);
+	 	add(g1);
+	 	add(g2);
+	 	add(g3);
+	 	add(g4);
 	 	
-	 	add(textFields,BorderLayout.WEST);
-	 	add(mainPanel,BorderLayout.EAST);
 	}
 }	
 
