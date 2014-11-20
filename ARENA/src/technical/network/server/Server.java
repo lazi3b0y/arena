@@ -1,4 +1,4 @@
-package technical.network;
+package technical.network.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
