@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
+	private static final int windowWidth = 800, windowHeight = 500;
+	
 	private ImageIcon ad;
 	private JButton gamesBtn, newsBtn, profileBtn, logOutBtn;
 	private JLabel adContainer;
@@ -38,26 +40,35 @@ public class MainFrame extends JFrame {
 		profilePanel = new ProfilePanel();
 		
 		setLayout(null);
-		setSize(800, 500);
+		setSize(windowWidth, windowHeight);
 		setResizable(false);
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		gamesBtn.setBounds(0, 0, 200, 50);
+		/*gamesBtn.setBounds(0, 0, 200, 50);
 		add(gamesBtn);
+		
 		newsBtn.setBounds(200, 0, 200, 50);
 		add(newsBtn);
+		
 		profileBtn.setBounds(400, 0, 200, 50);
 		add(profileBtn);
+		
 		logOutBtn.setBounds(600, 0, 200, 50);
-		add(logOutBtn);
+		add(logOutBtn);*/
+		
 		adContainer.setBounds(600, 50, 200, 450);
 		add(adContainer);
-		gamesPanel.setBounds(0, 50, 600, 450);
+		
 		newsPanel.setBounds(0, 50, 600, 450);
 		profilePanel.setBounds(0, 50, 600, 450);
+		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
+		
+		menuBar.add(file);
+		menuBar.setBounds(0, 0, windowWidth, 100);
+		add(menuBar);
 		add(contentPane);
 		
 		ActionListeners();

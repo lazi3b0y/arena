@@ -10,7 +10,7 @@ public class GamesPanel extends JPanel{
 	public GamesPanel() {
 		setLayout(null);
 		
-		/*game1 = new JButton("Play Game");
+		game1 = new JButton("Play Game");
 		game1.setBounds(500, 0, 100, 50);
 		g1  = new JLabel("Game 1", SwingConstants.CENTER);
 		g1.setBounds(0, 0, 80, 50);
@@ -36,7 +36,7 @@ public class GamesPanel extends JPanel{
 		g4  = new JLabel("Game 4", SwingConstants.CENTER);
 		g4.setBounds(0, 150, 80, 50);
 		add(game4);
-		add(g4);*/
+		add(g4);
 	}
 }	
 
