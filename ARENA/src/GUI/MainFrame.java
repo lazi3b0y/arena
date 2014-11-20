@@ -12,10 +12,10 @@ public class MainFrame extends JFrame{
 	JPanel topBar;
 	JTabbedPane tabPanel;
 	JButton logOut;
-	JButton placeHolder;
-	JButton placeHolder2;
-	JButton placeHolder3;
-	JButton placeHolder4;
+	GamesPanel gamesPanel;
+	NewsPanel newsPanel;
+	ProfilePanel profilePanel;
+	
 	
 	public MainFrame() {
 		super("ARENA");
@@ -24,14 +24,13 @@ public class MainFrame extends JFrame{
 		topBar = new JPanel();
 		tabPanel = new JTabbedPane();
 		logOut = new JButton("Log out");
-		placeHolder = new JButton("Placeholder");
-		placeHolder2 = new JButton("Placeholder2");
-		placeHolder3 = new JButton("Placeholder3");
-		placeHolder4 = new JButton("Placeholder4");
+		gamesPanel = new GamesPanel();
+		newsPanel = new NewsPanel();
+		profilePanel = new ProfilePanel();
 		
-		tabPanel.addTab("<html><body><table width='172'>Games</table></body></html>", null, placeHolder, "Does nothing");
-		tabPanel.addTab("<html><body><table width='172'>News</table></body></html>", null, placeHolder2, "Does twice as much nothing");
-		tabPanel.addTab("<html><body><table width='172'>Profile</table></body></html>", null, placeHolder3, "Still does nothing");
+		tabPanel.addTab("<html><body><table width='172'>Games</table></body></html>", null, gamesPanel, "Games Library");
+		tabPanel.addTab("<html><body><table width='172'>News</table></body></html>", null, newsPanel, "News and updates");
+		tabPanel.addTab("<html><body><table width='172'>Profile</table></body></html>", null, profilePanel, "Profile and profile settings");
 		cons.gridx = 0;
 		cons.gridy = 0;
 		cons.gridheight = 2;

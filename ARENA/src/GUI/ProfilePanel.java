@@ -2,6 +2,6 @@ package GUI;
 
 import javax.swing.JPanel;
 
-public class NewsPanel extends JPanel{
+public class ProfilePanel extends JPanel{
 
 }
