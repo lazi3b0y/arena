@@ -1,67 +1,51 @@
 package GUI;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Image;
-import java.awt.Label;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import javax.swing.*;
 
 
 public class MainFrame extends JFrame{ 
 	private static final long serialVersionUID = 1L;
-	GridBagConstraints cons = new GridBagConstraints();
-	JPanel contentPane = new JPanel(new GridBagLayout());
-	JPanel topBar = new JPanel();
-	JPanel newsBar = new JPanel();
-	JButton Games = new JButton("Games");
-	JButton News = new JButton("News");
-	JButton Profile = new JButton("Profile");
-	JButton LogOut = new JButton("Log Out");
-	JButton asd = new JButton("ASD");
-
+	GridBagConstraints cons;
+	JPanel contentPane;
+	JPanel topBar;
+	JTabbedPane tabPanel;
+	JButton logOut;
+	JButton placeHolder;
+	JButton placeHolder2;
+	JButton placeHolder3;
+	JButton placeHolder4;
+	
 	public MainFrame() {
 		super("ARENA");
+		cons = new GridBagConstraints();
+		contentPane = new JPanel(new GridBagLayout());
+		topBar = new JPanel();
+		tabPanel = new JTabbedPane();
+		logOut = new JButton("Log out");
+		placeHolder = new JButton("Placeholder");
+		placeHolder2 = new JButton("Placeholder2");
+		placeHolder3 = new JButton("Placeholder3");
+		placeHolder4 = new JButton("Placeholder4");
 		
-		/*topBar.setLayout(new GridLayout(0,4));
-		topBar.add(Games);
-		topBar.add(News);
-		topBar.add(Profile);
-		topBar.add(LogOut);
-		contentPane.add(topBar, BorderLayout.NORTH);
-		newsBar.setLayout(new GridBagLayout());
-		cons.fill = GridBagConstraints.VERTICAL;
-		cons.gridx = -1;
-		cons.gridy = 0;
-		newsBar.add(newsLabel, cons);
-		contentPane.add(newsBar, BorderLayout.WEST);*/
-		cons.weightx = 0.5;
+		tabPanel.addTab("<html><body><table width='172'>Games</table></body></html>", null, placeHolder, "Does nothing");
+		tabPanel.addTab("<html><body><table width='172'>News</table></body></html>", null, placeHolder2, "Does twice as much nothing");
+		tabPanel.addTab("<html><body><table width='172'>Profile</table></body></html>", null, placeHolder3, "Still does nothing");
 		cons.gridx = 0;
 		cons.gridy = 0;
-		cons.ipady = 50;
-		cons.gridwidth = 2;
+		cons.gridheight = 2;
 		cons.fill = GridBagConstraints.HORIZONTAL;
-		contentPane.add(Games, cons);
-		cons.gridx = 2;
-		contentPane.add(News, cons);
-		cons.gridx = 4;
-		contentPane.add(Profile, cons);
-		cons.gridx = 6;
-		contentPane.add(LogOut, cons);
-		cons.gridx = 0;
-		cons.gridy = 1;
-		cons.gridwidth = 4;
-		cons.ipady = 0;
-		//contentPane.add(newsLabel, cons);
+		cons.weightx = 0.75;
+		cons.ipady = 350;
+		contentPane.add(tabPanel, cons);
+		
+		cons.gridx = 1;
+		cons.gridheight = 1;
+		cons.weightx = 0.25;
+		cons.ipady = 5;
+		contentPane.add(logOut, cons);
+		
 		add(contentPane);
 		setSize(800, 500);
 		setResizable(false);
