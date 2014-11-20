@@ -48,40 +48,20 @@ public abstract class Database {
 	/**
 	   * Disconnect 
 	   */ 
-	public void disconnect() {
-		try {
-			connection.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void disconnect() throws SQLException {
+		connection.close();
 	}
 
-	protected void executeQuery() {
-
+	public void beginTransaction() throws SQLException {
+		connection.setAutoCommit(false);
 	}
 
-	public void beginTransaction() {
-		try {
-			connection.setAutoCommit(false);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void commit() throws SQLException {
+		connection.commit();
 	}
 
-	public void commit() {
-		try {
-			connection.commit();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void rollback() {
-		try {
-			connection.rollback();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void rollback() throws SQLException {
+		connection.rollback();
 	}
 
 	/**
@@ -93,9 +73,9 @@ public abstract class Database {
 	   * @return A SQL result set
 	   */ 
 	public ResultSet executeQuery(String sqlCommand, SqlParameter... params) throws SQLException {
-		PreparedStatement statement = createPreparedStatement(sqlCommand,
-				params);
+		PreparedStatement statement = createPreparedStatement(sqlCommand, params);
 		ResultSet rs = statement.executeQuery();
+		
 		return rs;
 	}
 	
@@ -108,8 +88,7 @@ public abstract class Database {
 	   */ 
 
 	public void executeNonQuery(String sqlCommand, SqlParameter... params) throws SQLException {
-		PreparedStatement statement = createPreparedStatement(sqlCommand,
-				params);
+		PreparedStatement statement = createPreparedStatement(sqlCommand, params);
 		statement.executeUpdate();
 	}
 
