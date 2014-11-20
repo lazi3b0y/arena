@@ -24,10 +24,8 @@ public class GamesPanel extends JPanel{
 	 	textFields.add(testa);
 	 	mainPanel.setSize(50, 50);
 	 	
-	 	contentPane.add(textFields,BorderLayout.WEST);
-	 	contentPane.add(mainPanel,BorderLayout.EAST);
-	 	
-	 	add(contentPane);
+	 	add(textFields,BorderLayout.WEST);
+	 	add(mainPanel,BorderLayout.EAST);
 	}
 }	
 
