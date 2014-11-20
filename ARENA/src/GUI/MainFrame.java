@@ -28,11 +28,18 @@ public class MainFrame extends JFrame {
 		News = new JButton("News");
 		Profile = new JButton("Profile");
 		logOut = new JButton("Log out");
-		ads = new JLabel(adsImage/*"Advertisement", SwingConstants.CENTER*/);
+		ads = new JLabel(adsImage);
 		contentPane = new JPanel();
 		gamesPanel = new GamesPanel();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
+		
+		setLayout(null);
+		setSize(800, 500);
+		setResizable(false);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		Games.setBounds(0, 0, 200, 50);
 		add(Games);
@@ -51,13 +58,6 @@ public class MainFrame extends JFrame {
 		add(contentPane);
 		
 		ActionListeners();
-		
-		setLayout(null);
-		setSize(800, 500);
-		setResizable(false);
-		setVisible(true);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	public void ActionListeners(){
 		
@@ -90,10 +90,11 @@ public class MainFrame extends JFrame {
 		});
 		logOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//LoggaUtDelen
+				//FIX ME
+				//Dialog som frågar om man är säker på att man vill logga ut. 
+				//Om användaren väljer Ja så ska huvudfönstret stängas ner och login rutan visas på nytt.
 				dispose();
 			}
 		});
-		
 	}
 }
