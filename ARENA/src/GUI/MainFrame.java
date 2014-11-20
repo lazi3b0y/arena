@@ -41,9 +41,9 @@ public class MainFrame extends JFrame{
 		profilePanel = new ProfilePanel();
 		
 		ads.setIcon(adsImage);
-		tabPanel.addTab("<html><body><table width=layout'fil'>Games</table></body></html>", null, gamesPanel, "Games Library");
-		tabPanel.addTab("<html><body><table width=layout'fil'>News</table></body></html>", null, newsPanel, "News and updates");
-		tabPanel.addTab("<html><body><table width=layout'fil'>Profile</table></body></html>", null, profilePanel, "Profile and profile settings");
+		tabPanel.addTab("<html><body><table width='fit'>Games</table></body></html>", null, gamesPanel, "Games Library");
+		tabPanel.addTab("<html><body><table width='fit'>News</table></body></html>", null, newsPanel, "News and updates");
+		tabPanel.addTab("<html><body><table width='fit'>Profile</table></body></html>", null, profilePanel, "Profile and profile settings");
 		cons.gridx = 0;
 		cons.gridy = 0;
 		cons.gridheight = 2;
