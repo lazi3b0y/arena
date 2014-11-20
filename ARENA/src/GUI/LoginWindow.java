@@ -25,7 +25,7 @@ public class LoginWindow extends JFrame implements ActionListener{
 	private JButton login;
 	
 	public LoginWindow() {
-		super("Login");
+		super("Authentication");
 		contentPane = new JPanel(new BorderLayout());
 		usernameField = new JTextField(15);
 		passwordField = new JPasswordField(15);

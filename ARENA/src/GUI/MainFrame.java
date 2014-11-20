@@ -1,35 +1,38 @@
 package GUI;
 
-import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	JPanel contentPane;
-	JButton Games, News, Profile, logOut;
-	JLabel ads;
-	ImageIcon adsImage;
-	GamesPanel gamesPanel;
-	NewsPanel newsPanel;
-	ProfilePanel profilePanel;
+	private ImageIcon ad;
+	private JButton gamesBtn, newsBtn, profileBtn, logOutBtn;
+	private JLabel adContainer;
+	private JPanel contentPane;
+	private JMenuBar menuBar;
+	private JMenu file;
+	private GamesPanel gamesPanel;
+	private NewsPanel newsPanel;
+	private ProfilePanel profilePanel;
 
 	public MainFrame() {
 		super("ARENA");
-		adsImage = new ImageIcon("src/GUI/ads.png");
-		Games = new JButton("Games");
-		News = new JButton("News");
-		Profile = new JButton("Profile");
-		logOut = new JButton("Log out");
-		ads = new JLabel(adsImage);
+		ad = new ImageIcon("src/GUI/ads.png");
+		gamesBtn = new JButton("Games");
+		newsBtn = new JButton("News");
+		profileBtn = new JButton("Profile");
+		logOutBtn = new JButton("Log out");
+		adContainer = new JLabel(ad);
 		contentPane = new JPanel();
+		menuBar = new JMenuBar();
+		file = new JMenu("File");
 		gamesPanel = new GamesPanel();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
@@ -41,16 +44,16 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		Games.setBounds(0, 0, 200, 50);
-		add(Games);
-		News.setBounds(200, 0, 200, 50);
-		add(News);
-		Profile.setBounds(400, 0, 200, 50);
-		add(Profile);
-		logOut.setBounds(600, 0, 200, 50);
-		add(logOut);
-		ads.setBounds(600, 50, 200, 450);
-		add(ads);
+		gamesBtn.setBounds(0, 0, 200, 50);
+		add(gamesBtn);
+		newsBtn.setBounds(200, 0, 200, 50);
+		add(newsBtn);
+		profileBtn.setBounds(400, 0, 200, 50);
+		add(profileBtn);
+		logOutBtn.setBounds(600, 0, 200, 50);
+		add(logOutBtn);
+		adContainer.setBounds(600, 50, 200, 450);
+		add(adContainer);
 		gamesPanel.setBounds(0, 50, 600, 450);
 		newsPanel.setBounds(0, 50, 600, 450);
 		profilePanel.setBounds(0, 50, 600, 450);
@@ -61,7 +64,7 @@ public class MainFrame extends JFrame {
 	}
 	public void ActionListeners(){
 		
-		Games.addActionListener(new ActionListener() {
+		gamesBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				remove(newsPanel);
 				remove(profilePanel);
@@ -70,7 +73,7 @@ public class MainFrame extends JFrame {
 				repaint();
 			}
 		});
-		News.addActionListener(new ActionListener() {
+		newsBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				remove(profilePanel);
 				remove(gamesPanel);
@@ -79,7 +82,7 @@ public class MainFrame extends JFrame {
 				repaint();
 			}
 		});
-		Profile.addActionListener(new ActionListener() {
+		profileBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				remove(gamesPanel);
 				remove(newsPanel);
@@ -88,7 +91,7 @@ public class MainFrame extends JFrame {
 				repaint();
 			}
 		});
-		logOut.addActionListener(new ActionListener() {
+		logOutBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//FIX ME
 				//Dialog som frågar om man är säker på att man vill logga ut. 
