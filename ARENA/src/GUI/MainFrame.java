@@ -11,8 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
-
-public class MainFrame extends JFrame{ 
+public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	GridBagConstraints cons;
 	JPanel contentPane;
@@ -24,8 +23,7 @@ public class MainFrame extends JFrame{
 	GamesPanel gamesPanel;
 	NewsPanel newsPanel;
 	ProfilePanel profilePanel;
-	
-	
+
 	public MainFrame() {
 		super("ARENA");
 		adsImage = new ImageIcon("ads.jpg");
@@ -35,11 +33,11 @@ public class MainFrame extends JFrame{
 		tabPanel = new JTabbedPane();
 		logOut = new JButton("Log out");
 		testKnapp = new JButton("TESTING");
-		ads = new JLabel(/*"Advertisement", SwingConstants.CENTER*/);
+		ads = new JLabel(/* "Advertisementt", SwingConstants.CENTER */);
 		gamesPanel = new GamesPanel();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
-		
+
 		ads.setIcon(adsImage);
 		tabPanel.addTab("<html><body><table width='fit'>Games</table></body></html>", null, gamesPanel, "Games Library");
 		tabPanel.addTab("<html><body><table width='fit'>News</table></body></html>", null, newsPanel, "News and updates");
@@ -52,19 +50,19 @@ public class MainFrame extends JFrame{
 		cons.weightx = 0.75;
 		cons.weighty = 1.0;
 		contentPane.add(tabPanel, cons);
-		
+
 		cons.gridx = 1;
 		cons.gridheight = 1;
 		cons.weightx = 0.25;
 		cons.weighty = 0.01;
 		contentPane.add(logOut, cons);
-		
+
 		cons.gridy = 1;
 		cons.gridheight = 1;
 		cons.weightx = 0.25;
 		cons.weighty = 0.99;
 		contentPane.add(ads, cons);
-		
+
 		add(contentPane);
 		setSize(800, 500);
 		setResizable(false);
