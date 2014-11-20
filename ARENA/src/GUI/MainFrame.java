@@ -1,7 +1,8 @@
 package GUI;
 
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -9,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.SwingConstants;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +17,7 @@ public class MainFrame extends JFrame {
 	JPanel contentPane;
 	JPanel topBar;
 	JTabbedPane tabPanel;
-	JButton logOut, testKnapp;
+	JButton Games, News, Profile, logOut, testKnapp;
 	JLabel ads;
 	ImageIcon adsImage;
 	GamesPanel gamesPanel;
@@ -26,48 +26,71 @@ public class MainFrame extends JFrame {
 
 	public MainFrame() {
 		super("ARENA");
-		adsImage = new ImageIcon("ads.jpg");
-		cons = new GridBagConstraints();
-		contentPane = new JPanel(new GridBagLayout());
-		topBar = new JPanel();
-		tabPanel = new JTabbedPane();
+		adsImage = new ImageIcon("src/GUI/ads.jpg");
+		Games = new JButton("Games");
+		News = new JButton("News");
+		Profile = new JButton("Profile");
 		logOut = new JButton("Log out");
-		testKnapp = new JButton("TESTING");
-		ads = new JLabel(/* "Advertisementt", SwingConstants.CENTER */);
+		ads = new JLabel(adsImage/*"Advertisementt", SwingConstants.CENTER*/);
+		contentPane = new JPanel();
 		gamesPanel = new GamesPanel();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
-
-		ads.setIcon(adsImage);
-		tabPanel.addTab("<html><body><table width='fit'>Games</table></body></html>", null, gamesPanel, "Games Library");
-		tabPanel.addTab("<html><body><table width='fit'>News</table></body></html>", null, newsPanel, "News and updates");
-		tabPanel.addTab("<html><body><table width='fit'>Profile</table></body></html>", null, profilePanel, "Profile and profile settings");
-		cons.gridx = 0;
-		cons.gridy = 0;
-		cons.gridheight = 2;
-		cons.fill = GridBagConstraints.BOTH;
-		cons.anchor = GridBagConstraints.NORTH;
-		cons.weightx = 0.75;
-		cons.weighty = 1.0;
-		contentPane.add(tabPanel, cons);
-
-		cons.gridx = 1;
-		cons.gridheight = 1;
-		cons.weightx = 0.25;
-		cons.weighty = 0.01;
-		contentPane.add(logOut, cons);
-
-		cons.gridy = 1;
-		cons.gridheight = 1;
-		cons.weightx = 0.25;
-		cons.weighty = 0.99;
-		contentPane.add(ads, cons);
-
+		
+		Games.setBounds(0, 0, 200, 50);
+		add(Games);
+		News.setBounds(200,0,200,50);
+		add(News);
+		Profile.setBounds(400, 0, 200, 50);
+		add(Profile);
+		logOut.setBounds(600, 0, 200, 50);
+		add(logOut);
+		ads.setBounds(600, 50, 200, 350);
+		add(ads);
+		contentPane.setBounds(0, 50, 600, 450);
+		contentPane.add(gamesPanel);
 		add(contentPane);
+		
+		ActionListeners();
+		
+		setLayout(null);
 		setSize(800, 500);
 		setResizable(false);
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	public void ActionListeners(){
+		
+		Games.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.removeAll();
+				contentPane.revalidate();
+				contentPane.repaint();
+				contentPane.add(gamesPanel);
+			}
+		});
+		News.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.removeAll();
+				contentPane.revalidate();
+				contentPane.repaint();
+				contentPane.add(newsPanel);
+			}
+		});
+		Profile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.removeAll();
+				contentPane.revalidate();
+				contentPane.repaint();
+				contentPane.add(profilePanel);
+			}
+		});
+		logOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//LoggaUtDelen
+			}
+		});
+		
 	}
 }
