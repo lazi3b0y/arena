@@ -35,7 +35,6 @@ public class MainFrame extends JFrame {
 		profileBtn = new JButton("Profile");
 		logOutBtn = new JButton("Log out");
 		adContainer = new JLabel(ad);
-		menuBar = new JMenuBar();
 		gamesPanel = new GameFrame();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
@@ -67,7 +66,6 @@ public class MainFrame extends JFrame {
 		profilePanel.setBounds(0, 50, 600, 450);
 		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
-		menuBar.add(new AdminMenu());
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
 		
