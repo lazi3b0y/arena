@@ -13,6 +13,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
+import GUI.menu.AdminMenu;
+import GUI.menu.UsersMenu;
+
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static final int windowWidth = 800, windowHeight = 500;
@@ -73,7 +76,9 @@ public class MainFrame extends JFrame {
 		file.add(settings);
 		file.add(new JSeparator());
 		file.add(exit);
-		menuBar.add(file);
+		
+		// menuBar.add(file);
+		menuBar.add(new AdminMenu()); // Vad sÃ¤gs om detta?
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
 		
@@ -116,8 +121,8 @@ public class MainFrame extends JFrame {
 		logOutBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//FIX ME
-				//Dialog som frågar om man är säker på att man vill logga ut. 
-				//Om användaren väljer Ja så ska huvudfönstret stängas ner och login rutan visas på nytt.
+				//Dialog som frï¿½gar om man ï¿½r sï¿½ker pï¿½ att man vill logga ut. 
+				//Om anvï¿½ndaren vï¿½ljer Ja sï¿½ ska huvudfï¿½nstret stï¿½ngas ner och login rutan visas pï¿½ nytt.
 				dispose();
 			}
 		});
@@ -129,8 +134,8 @@ public class MainFrame extends JFrame {
 		settings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Inte viktigt.
-				//Kan läggas till i iteration 3 om tid finns.
-				//Ny ruta med inställningar ska visa sig när man tycker på denna knappen.
+				//Kan lï¿½ggas till i iteration 3 om tid finns.
+				//Ny ruta med instï¿½llningar ska visa sig nï¿½r man tycker pï¿½ denna knappen.
 			}
 		});
 		exit.addActionListener(new ActionListener() {
