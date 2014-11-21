@@ -26,6 +26,7 @@ public class MainFrame extends JFrame {
 	private GameFrame gamesPanel;
 	private NewsPanel newsPanel;
 	private ProfilePanel profilePanel;
+	private boolean Choice;
 
 	public MainFrame() {
 		super("ARENA");
@@ -39,6 +40,7 @@ public class MainFrame extends JFrame {
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
 		menuBar = new AdminMenu();
+		Choice = true;
 		
 		setLayout(null);
 		setSize(windowWidth, windowHeight);
@@ -110,8 +112,12 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//FIX ME
 				//Dialog som frï¿½gar om man ï¿½r sï¿½ker pï¿½ att man vill logga ut. 
-				//Om anvï¿½ndaren vï¿½ljer Ja sï¿½ ska huvudfï¿½nstret stï¿½ngas ner och login rutan visas pï¿½ nytt.
-				dispose();
+				//Om användaren väljer Ja så ska huvudfönstret stängas ner och login rutan visas på nytt.
+				LogoutWindow logoutFrame = new LogoutWindow(Choice);
+				if(Choice == true){
+					dispose();
+					LoginWindow login = new LoginWindow();
+				}
 			}
 		});
 		
