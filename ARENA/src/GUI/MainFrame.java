@@ -20,7 +20,6 @@ public class MainFrame extends JFrame {
 	private ImageIcon ad;
 	private JButton gamesBtn, newsBtn, profileBtn, logOutBtn;
 	private JLabel adContainer;
-	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenu file;
 	private JMenuItem settings, exit;
@@ -36,7 +35,6 @@ public class MainFrame extends JFrame {
 		profileBtn = new JButton("Profile");
 		logOutBtn = new JButton("Log out");
 		adContainer = new JLabel(ad);
-		contentPane = new JPanel();
 		menuBar = new JMenuBar();
 		file = new JMenu("File");
 		settings = new JMenuItem("Settings");
@@ -78,7 +76,6 @@ public class MainFrame extends JFrame {
 		menuBar.add(file);
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
-		add(contentPane);
 		
 		InitActionListeners();
 	}
