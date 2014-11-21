@@ -2,12 +2,14 @@ package GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
@@ -46,17 +48,17 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		/*gamesBtn.setBounds(0, 0, 200, 50);
+		gamesBtn.setBounds(0, 20, 200, 30);
 		add(gamesBtn);
 		
-		newsBtn.setBounds(200, 0, 200, 50);
+		newsBtn.setBounds(200, 20, 200, 30);
 		add(newsBtn);
 		
-		profileBtn.setBounds(400, 0, 200, 50);
+		profileBtn.setBounds(400, 20, 200, 30);
 		add(profileBtn);
 		
-		logOutBtn.setBounds(600, 0, 200, 50);
-		add(logOutBtn);*/
+		logOutBtn.setBounds(600, 20, 200, 30);
+		add(logOutBtn);
 		
 		adContainer.setBounds(600, 50, 200, 450);
 		add(adContainer);
@@ -66,14 +68,15 @@ public class MainFrame extends JFrame {
 		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
 		
+		file.add(new JMenuItem("Exit"));
 		menuBar.add(file);
-		menuBar.setBounds(0, 0, windowWidth, 100);
+		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
 		add(contentPane);
 		
-		ActionListeners();
+		InitActionListeners();
 	}
-	public void ActionListeners(){
+	public void InitActionListeners(){
 		
 		gamesBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
