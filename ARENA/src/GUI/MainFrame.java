@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,21 +11,19 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-
+import GUI.gamepanel.*;
 import GUI.menu.AdminMenu;
 import GUI.menu.UsersMenu;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private static final int windowWidth = 800, windowHeight = 500;
+	private static final int windowWidth = 800, windowHeight = 528;
 	
 	private ImageIcon ad;
 	private JButton gamesBtn, newsBtn, profileBtn, logOutBtn;
 	private JLabel adContainer;
 	private JMenuBar menuBar;
-	private JMenu file;
-	private JMenuItem settings, exit;
-	private GamesPanel gamesPanel;
+	private GameFrame gamesPanel;
 	private NewsPanel newsPanel;
 	private ProfilePanel profilePanel;
 
@@ -39,10 +36,7 @@ public class MainFrame extends JFrame {
 		logOutBtn = new JButton("Log out");
 		adContainer = new JLabel(ad);
 		menuBar = new JMenuBar();
-		file = new JMenu("File");
-		settings = new JMenuItem("Settings");
-		exit = new JMenuItem("Exit");
-		gamesPanel = new GamesPanel();
+		gamesPanel = new GameFrame();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
 		
@@ -72,15 +66,14 @@ public class MainFrame extends JFrame {
 		profilePanel.setBounds(0, 50, 600, 450);
 		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
-		
-		file.add(settings);
-		file.add(new JSeparator());
-		file.add(exit);
-		
-		// menuBar.add(file);
-		menuBar.add(new AdminMenu()); // Vad sÃ¤gs om detta?
+
+		menuBar.add(new AdminMenu());
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
+		
+		//Menyn verkade inte vilja visa sig direkt, så la till dessa för att få menyn att visa sig ordentligt.
+		revalidate();
+		repaint();
 		
 		InitActionListeners();
 	}
@@ -123,23 +116,6 @@ public class MainFrame extends JFrame {
 				//FIX ME
 				//Dialog som frï¿½gar om man ï¿½r sï¿½ker pï¿½ att man vill logga ut. 
 				//Om anvï¿½ndaren vï¿½ljer Ja sï¿½ ska huvudfï¿½nstret stï¿½ngas ner och login rutan visas pï¿½ nytt.
-				dispose();
-			}
-		});
-		
-		/**
-		 * JMenuItem ActionListeners
-		 */
-		
-		settings.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Inte viktigt.
-				//Kan lï¿½ggas till i iteration 3 om tid finns.
-				//Ny ruta med instï¿½llningar ska visa sig nï¿½r man tycker pï¿½ denna knappen.
-			}
-		});
-		exit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
