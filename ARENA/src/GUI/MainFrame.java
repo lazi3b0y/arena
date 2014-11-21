@@ -24,8 +24,6 @@ public class MainFrame extends JFrame {
 	private JButton gamesBtn, newsBtn, profileBtn, logOutBtn;
 	private JLabel adContainer;
 	private JMenuBar menuBar;
-	private JMenu file;
-	private JMenuItem settings, exit;
 	private GamesPanel gamesPanel;
 	private NewsPanel newsPanel;
 	private ProfilePanel profilePanel;
@@ -38,13 +36,10 @@ public class MainFrame extends JFrame {
 		profileBtn = new JButton("Profile");
 		logOutBtn = new JButton("Log out");
 		adContainer = new JLabel(ad);
-		menuBar = new JMenuBar();
-		file = new JMenu("File");
-		settings = new JMenuItem("Settings");
-		exit = new JMenuItem("Exit");
 		gamesPanel = new GamesPanel();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
+		menuBar = new AdminMenu();
 		
 		setLayout(null);
 		setSize(windowWidth, windowHeight);
@@ -72,13 +67,7 @@ public class MainFrame extends JFrame {
 		profilePanel.setBounds(0, 50, 600, 450);
 		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
-		
-		file.add(settings);
-		file.add(new JSeparator());
-		file.add(exit);
-		
-		// menuBar.add(file);
-		menuBar.add(new AdminMenu()); // Vad sägs om detta?
+				
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
 		
@@ -128,17 +117,10 @@ public class MainFrame extends JFrame {
 		});
 		
 		/**
-		 * JMenuItem ActionListeners
+		 * Exit menu item Action listener
 		 */
 		
-		settings.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Inte viktigt.
-				//Kan l�ggas till i iteration 3 om tid finns.
-				//Ny ruta med inst�llningar ska visa sig n�r man tycker p� denna knappen.
-			}
-		});
-		exit.addActionListener(new ActionListener() {
+		((UsersMenu)menuBar).getExitItem().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
