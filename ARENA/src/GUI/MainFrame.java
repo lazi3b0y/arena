@@ -39,6 +39,7 @@ public class MainFrame extends JFrame {
 		gamesPanel = new GameFrame();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
+		menuBar = new AdminMenu();
 		
 		setLayout(null);
 		setSize(windowWidth, windowHeight);
@@ -66,7 +67,6 @@ public class MainFrame extends JFrame {
 		profilePanel.setBounds(0, 50, 600, 450);
 		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
-
 		menuBar.add(new AdminMenu());
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
@@ -116,6 +116,16 @@ public class MainFrame extends JFrame {
 				//FIX ME
 				//Dialog som fr�gar om man �r s�ker p� att man vill logga ut. 
 				//Om anv�ndaren v�ljer Ja s� ska huvudf�nstret st�ngas ner och login rutan visas p� nytt.
+				dispose();
+			}
+		});
+		
+		/**
+		 * Exit menu item Action listener
+		 */
+		
+		((UsersMenu)menuBar).getExitItem().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
