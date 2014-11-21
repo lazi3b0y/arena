@@ -1,5 +1,8 @@
 package GUI.menu;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -14,6 +17,17 @@ public class AdminMenu extends UsersMenu {
 		administration.add(handleGames);
 		
 		super.add(administration);
+	}
+	
+	private void addInstallGameListener() {
+		installGame.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+			
+		});
 	}
 	
 }
