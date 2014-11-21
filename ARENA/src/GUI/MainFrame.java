@@ -66,12 +66,9 @@ public class MainFrame extends JFrame {
 		profilePanel.setBounds(0, 50, 600, 450);
 		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
+		
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
-		
-		//Menyn verkade inte vilja visa sig direkt, så la till dessa för att få menyn att visa sig ordentligt.
-		revalidate();
-		repaint();
 		
 		InitActionListeners();
 	}
