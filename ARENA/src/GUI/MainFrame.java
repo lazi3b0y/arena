@@ -11,6 +11,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +23,7 @@ public class MainFrame extends JFrame {
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenu file;
+	private JMenuItem settings, exit;
 	private GamesPanel gamesPanel;
 	private NewsPanel newsPanel;
 	private ProfilePanel profilePanel;
@@ -37,6 +39,8 @@ public class MainFrame extends JFrame {
 		contentPane = new JPanel();
 		menuBar = new JMenuBar();
 		file = new JMenu("File");
+		settings = new JMenuItem("Settings");
+		exit = new JMenuItem("Exit");
 		gamesPanel = new GamesPanel();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
@@ -68,7 +72,9 @@ public class MainFrame extends JFrame {
 		gamesPanel.setBounds(0, 50, 600, 450);
 		add(gamesPanel);
 		
-		file.add(new JMenuItem("Exit"));
+		file.add(settings);
+		file.add(new JSeparator());
+		file.add(exit);
 		menuBar.add(file);
 		menuBar.setBounds(0, 0, windowWidth, 20);
 		add(menuBar);
@@ -76,6 +82,7 @@ public class MainFrame extends JFrame {
 		
 		InitActionListeners();
 	}
+	
 	public void InitActionListeners(){
 		
 		gamesBtn.addActionListener(new ActionListener() {
@@ -110,6 +117,21 @@ public class MainFrame extends JFrame {
 				//FIX ME
 				//Dialog som frågar om man är säker på att man vill logga ut. 
 				//Om användaren väljer Ja så ska huvudfönstret stängas ner och login rutan visas på nytt.
+				dispose();
+			}
+		});
+		
+		/**
+		 * JMenu ActionListeners
+		 */
+		settings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//FIX ME
+				//Ny ruta med inställningar ska visa sig när man tycker på denna knappen.
+			}
+		});
+		exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
