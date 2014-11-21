@@ -82,6 +82,10 @@ public class MainFrame extends JFrame {
 	
 	public void InitActionListeners(){
 		
+		/**
+		 * JButton ActionListeners
+		 */
+		
 		gamesBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				remove(newsPanel);
@@ -121,6 +125,7 @@ public class MainFrame extends JFrame {
 		/**
 		 * JMenu ActionListeners
 		 */
+		
 		settings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//FIX ME
