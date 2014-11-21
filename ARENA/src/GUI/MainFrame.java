@@ -123,12 +123,13 @@ public class MainFrame extends JFrame {
 		});
 		
 		/**
-		 * JMenu ActionListeners
+		 * JMenuItem ActionListeners
 		 */
 		
 		settings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//FIX ME
+				//Inte viktigt.
+				//Kan läggas till i iteration 3 om tid finns.
 				//Ny ruta med inställningar ska visa sig när man tycker på denna knappen.
 			}
 		});
