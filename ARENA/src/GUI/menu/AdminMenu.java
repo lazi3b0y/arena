@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+import GUI.InstallGameDialog;
+
 public class AdminMenu extends UsersMenu {
 	
 	private JMenu administration = new JMenu("Administration");
@@ -17,6 +19,8 @@ public class AdminMenu extends UsersMenu {
 		administration.add(handleGames);
 		
 		super.add(administration);
+		
+		addInstallGameListener();
 	}
 	
 	private void addInstallGameListener() {
@@ -24,9 +28,8 @@ public class AdminMenu extends UsersMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-			
+				new InstallGameDialog();
+			}	
 		});
 	}
 	
