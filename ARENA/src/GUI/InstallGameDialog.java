@@ -74,7 +74,7 @@ public class InstallGameDialog extends JDialog implements ActionListener {
 		c.fill = GridBagConstraints.WEST;
 		c.weighty = 2;
 		c.ipady = 5;
-		c.weightx = 0;
+		c.weightx = 1;
 	
 		c.gridy = 0;
 		
