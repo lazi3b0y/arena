@@ -28,7 +28,7 @@ public class ProfilePanel extends JPanel{
 		losses.setBounds(20, 80, 100, 15);
 		add(losses);
 		
-		winLoseRatio = new JLabel("W/L-Ratio: 0"/*winLoseRatio.GetWLRatio();*/);
+		winLoseRatio = new JLabel("W/L-Ratio: 1"/*winLoseRatio.GetWLRatio();*/);
 		winLoseRatio.setBounds(20, 95, 100, 15);
 		add(winLoseRatio);
 		

@@ -29,15 +29,15 @@ public class MainFrame extends JFrame {
 	private GameFrame gamesPanel;
 	private NewsPanel newsPanel;
 	private ProfilePanel profilePanel;
+	private AdPanel adPanel;
 
 	public MainFrame() {
 		super("ARENA");
-		ad = new ImageIcon("src/GUI/ads.png");
 		gamesBtn = new JButton("Games");
 		newsBtn = new JButton("News");
 		profileBtn = new JButton("Profile");
 		logOutBtn = new JButton("Log out");
-		adContainer = new JLabel(ad);
+		adPanel = new AdPanel();
 		gamesPanel = new GameFrame();
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
@@ -62,8 +62,8 @@ public class MainFrame extends JFrame {
 		logOutBtn.setBounds(600, 20, 200, 30);
 		add(logOutBtn);
 
-		adContainer.setBounds(600, 50, 200, 450);
-		add(adContainer);
+		adPanel.setBounds(600, 45, 200, 450);
+		add(adPanel);
 
 		newsPanel.setBounds(0, 50, 600, 450);
 		profilePanel.setBounds(0, 50, 600, 450);
