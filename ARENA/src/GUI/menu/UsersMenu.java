@@ -36,7 +36,7 @@ public class UsersMenu extends JMenuBar {
 	
 	/* 
 	 * Returns exit item
-	 * Ttypically the main frame has enough information to do something worthy with any event on this item
+	 * Typically the main frame has enough information to do something worthy with any event on this item
 	 */
 	public JMenuItem getExitItem() {
 		return exit;

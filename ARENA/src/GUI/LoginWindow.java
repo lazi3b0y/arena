@@ -1,17 +1,9 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.Arrays;
 
 public class LoginWindow extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
@@ -22,7 +14,7 @@ public class LoginWindow extends JFrame implements ActionListener{
 	private JLabel passwordLabel;
 	private JTextField usernameField;
 	private JPasswordField passwordField;
-	private JButton login;
+	private JButton loginBtn;
 	
 	public LoginWindow() {
 		super("Authentication");
@@ -42,9 +34,10 @@ public class LoginWindow extends JFrame implements ActionListener{
 		password.add(passwordField);
 		contentPane.add(password, BorderLayout.CENTER);
 		
-		login = new JButton("Login");
-		login.addActionListener(this);
-		contentPane.add(login, BorderLayout.SOUTH);
+		loginBtn = new JButton("Login");
+		loginBtn.addActionListener(this);
+		getRootPane().setDefaultButton(loginBtn);
+		contentPane.add(loginBtn, BorderLayout.SOUTH);
 		contentPane.setBorder(BorderFactory.createEmptyBorder(15, 10, 10, 10));
 		add(contentPane);
 		setVisible(true);
@@ -57,11 +50,21 @@ public class LoginWindow extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String username;
 		char[] password;
-		username = usernameField.getText();
+		
+		username = usernameField.getText().toLowerCase();
 		password = passwordField.getPassword();
+		
+		//Printing out the username and password for testing purposes
 		System.out.println(username);
-		for(int i = 0; i < password.length; i++) {
-			System.out.print(password[i]);
+		System.out.println(String.copyValueOf(password) + "\n");
+		
+		if (username.equals("admin") && String.copyValueOf(password).equals("admin")) {
+			Arrays.fill(password, '\0');
+			System.out.println("Username and password accepted. Logging in...");
+			dispose();
+			new MainFrame();
+		} else {
+			System.out.println("Wrong username and/or password. Try Again!\n");
 		}
 	}
 }
