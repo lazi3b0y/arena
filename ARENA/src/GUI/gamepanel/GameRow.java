@@ -5,11 +5,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class AddGame extends JPanel{
+public class GameRow extends JPanel{
 	private JButton playBtn;
 	private JLabel gameName;
 	
-	public AddGame(String gameName) {
+	public GameRow(String gameName) {
 		setLayout(null);
 
 		playBtn = new JButton("Play Game");

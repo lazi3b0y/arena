@@ -29,7 +29,6 @@ public class MainFrame extends JFrame {
 	private GameFrame gamesPanel;
 	private NewsPanel newsPanel;
 	private ProfilePanel profilePanel;
-	private boolean Choice;
 
 	public MainFrame() {
 		super("ARENA");
@@ -43,7 +42,6 @@ public class MainFrame extends JFrame {
 		newsPanel = new NewsPanel();
 		profilePanel = new ProfilePanel();
 		menuBar = new AdminMenu();
-		Choice = true;
 
 		setLayout(null);
 		setSize(windowWidth, windowHeight);
@@ -120,16 +118,16 @@ public class MainFrame extends JFrame {
 				}
 			}
 		});
-
+		
 		/**
 		 * Exit menu item Action listener
 		 */
 
 		((UsersMenu) menuBar).getExitItem().addActionListener(
-				new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
+		new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 	}
 }
