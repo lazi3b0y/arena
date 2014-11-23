@@ -41,4 +41,8 @@ public class UsersMenu extends JMenuBar {
 	public JMenuItem getExitItem() {
 		return exit;
 	}
+	
+	public JMenuItem getSettingsItem() {
+		return settings;
+	}
 }

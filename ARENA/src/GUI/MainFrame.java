@@ -122,11 +122,15 @@ public class MainFrame extends JFrame {
 		/**
 		 * Exit menu item Action listener
 		 */
-
-		((UsersMenu) menuBar).getExitItem().addActionListener(
-		new ActionListener() {
+		((UsersMenu) menuBar).getExitItem().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+			}
+		});
+		
+		((UsersMenu) menuBar).getSettingsItem().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new SettingsFrame();
 			}
 		});
 	}
