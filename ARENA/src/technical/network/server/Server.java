@@ -6,29 +6,23 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Server implements Runnable {
-	
+public abstract class Server implements Runnable {
+
 	private ServerSocket serverSocket;
 	private final int port;
-	private static final int POOL_SIZE = 50;
 	
-	public Server(int port) {
-		this.port = port;
-	}
+	protected ExecutorService pool;
 
-	
-	private void start() {
-		try {
-			serverSocket = new ServerSocket(port);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public Server(int port, int poolSize) throws IOException {
+		this.port = port;
+
+		serverSocket = new ServerSocket(port);
+		pool = Executors.newFixedThreadPool(poolSize);
 	}
+	
+	public abstract void run();
+/*
 	public void run() {
-		start();
-		
-		ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE);
-		
 		while (true) {
 			try {
 				Socket client = serverSocket.accept();
@@ -38,8 +32,12 @@ public class Server implements Runnable {
 			}
 		}
 	}
-	
+*/
 	public void stop() {
-		
+
+	}
+
+	public int getPort() {
+		return port;
 	}
 }
