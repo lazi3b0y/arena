@@ -4,20 +4,24 @@ import java.io.File;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-import technical.FileUploader;
-import domain.GameInstallationManager;
+import domain.InstallGameManager;
 
-/* The purpose of this class is to delegate responsibility to domain layer for game actions that require privilegies. */
+/* 
+ * Controller that handles each use case associated with Game administration (installing, handling, etc.) and responds to system events. 
+ * It can be viewed as a facade into the domain layer, which allows to easily adapt to any possible 
+ * requirement change (such as calls to remote services, etc.). 
+ * 
+ * */
+
 public class GameAdminController {
-	
+
 	public void installNewGame(String name, String description, File file) {
-		GameInstallationManager installationManager = new GameInstallationManager(null, null, null);
+		
+		InstallGameManager installationManager = new InstallGameManager(name, description, file);
 		try {
-			installationManager.install(new FileUploader(null, 3232, file));
-			
+			installationManager.install();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
