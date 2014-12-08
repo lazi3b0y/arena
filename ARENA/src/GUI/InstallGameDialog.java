@@ -16,8 +16,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import application.GameAdminController;
+
 public class InstallGameDialog extends JDialog implements ActionListener {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel nameLbl = new JLabel("Name", JLabel.TRAILING);
 	private JLabel descriptionLbl = new JLabel("Description");
 	private JLabel filePathLbl = new JLabel("File path");
@@ -30,7 +36,13 @@ public class InstallGameDialog extends JDialog implements ActionListener {
 	
 	private GridBagConstraints c = new GridBagConstraints();
 	
-	public InstallGameDialog() {
+	// Controller for use case
+	private GameAdminController gameController;
+	
+	public InstallGameDialog(GameAdminController gameController) {
+		
+		this.gameController = gameController;
+		
 		setTitle("Install new game");
 		setLayout(new GridBagLayout());
 		setSize(200, 200);

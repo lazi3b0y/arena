@@ -8,12 +8,9 @@ public class Advertisement {
 	private int ownerID; /* Temp, could be changed to Advertiser object instead if needed.  */
 	private AdvLocation advertisementLocation;
 	private AdvScheme advertisementScheme;
+	private int clicks = 0;
 	
-	/* Initial state - advertisements must be approved by an operator before it should be displayed.
-	 * 
-	 * Note: Use case needs to be changed here to make more sense - so advertisers make applications that get approved rather than - ask for permission - (and then upload).
-	 * 
-	 *  */
+	
 	private AdvApplicationStatus advStatus = AdvApplicationStatus.PENDING;
 	
 	public Advertisement(int advID, AdvLocation advLocation, AdvScheme advScheme) {
@@ -26,6 +23,14 @@ public class Advertisement {
 		this.setAdvertisementLocation(advLocation);
 		this.setAdvertisementScheme(advScheme);
 		this.advID = new Random().nextInt(999);
+	}
+	
+	public void addClick() {
+		this.setClicks(this.getClicks() + 1);
+	}
+	
+	public void resetClicks() {
+		this.setClicks(0);
 	}
 
 	public AdvLocation getAdvertisementLocation() {
@@ -58,5 +63,13 @@ public class Advertisement {
 
 	public void setAdvStatus(AdvApplicationStatus advStatus) {
 		this.advStatus = advStatus;
+	}
+
+	public int getClicks() {
+		return clicks;
+	}
+
+	public void setClicks(int clicks) {
+		this.clicks = clicks;
 	}
 }

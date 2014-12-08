@@ -1,25 +1,16 @@
 package domain.advertisements;
 
-public class AdvLocation {
+public abstract class AdvLocation {
 	
-	public static final int EAST = 0;
-
-	private String description;
 	private int maxWidth, maxHeight;
+	private double moneyPerClick;
 	
-	public AdvLocation(String description, int maxWidth, int maxHeight) {
-		this.setDescription(description);
+	public AdvLocation(int maxWidth, int maxHeight, double moneyPerClick) {
 		this.setMaxHeight(maxHeight);
 		this.setMaxWidth(maxWidth);
+		this.setMoneyPerClick(moneyPerClick);
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public int getMaxWidth() {
 		return maxWidth;
@@ -35,5 +26,15 @@ public class AdvLocation {
 
 	public void setMaxHeight(int maxHeight) {
 		this.maxHeight = maxHeight;
+	}
+
+
+	public double getMoneyPerClick() {
+		return moneyPerClick;
+	}
+
+
+	public void setMoneyPerClick(double moneyPerClick) {
+		this.moneyPerClick = moneyPerClick;
 	}
 }
