@@ -30,20 +30,29 @@ public class Advertiser extends User {
 		// load ads
 	}
 	
-	public double getTotalConvertableMoney() {
-		return ArenaBankService.getTotalConvertableMoney(advertisements, false);
-	}
+	
+	/**
+	   * Returns the total sum of money that advertiser can convert the current number of clicks on his advertisements into. 
+	   */ 
+	/*
+	public double getTotalAdsWorthMoney() {
+		return ArenaBankService.calcTotalMoney(advertisements, false);
+	}*/
 	
 	/**
 	   * Changes total number of clicks on advertiser's ads and converts into corresponding sum cash
 	   */ 
-	
+	/*
 	public void exchangeClicks() {
 		// Feels like a bit poorly chosen method name, but oh well.. ;) 
-		double totalConvertableMoney = ArenaBankService.getTotalConvertableMoney(advertisements, true);
+		double totalConvertableMoney = ArenaBankService.calcTotalMoney(advertisements, true);
 		account.deposit(totalConvertableMoney);
 	}
+	*/
 
+	public void charge(double amount) {
+		this.account.withdraw(amount);
+	}
 
 	public List<Advertisement> getAdvertisements() {
 		return advertisements;

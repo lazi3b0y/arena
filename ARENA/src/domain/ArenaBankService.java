@@ -7,7 +7,7 @@ import domain.advertisements.Advertisement;
 
 public final class ArenaBankService {
 
-	public static double getTotalConvertableMoney(List<Advertisement> advertisements, boolean reset) {
+	public static double calcTotalMoney(List<Advertisement> advertisements, boolean reset) {
 		double money = 0.0;
 		
 		for (Advertisement adv : advertisements) {

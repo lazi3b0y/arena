@@ -6,10 +6,10 @@ public class AdvScheme {
 	private Date start, end;
 	private AdvLocation advLocation;
 
-	public AdvScheme(Date start, Date end, AdvLocation advLocation) { 
+	public AdvScheme(Date start, Date end, AdvLocation advLocation) {
 		this.setStart(start);
 		this.setEnd(end);
-		
+
 	}
 
 	public Date getStart() {
@@ -35,4 +35,16 @@ public class AdvScheme {
 	public void setAdvLocation(AdvLocation advLocation) {
 		this.advLocation = advLocation;
 	}
+
+	public boolean compareTo(AdvScheme schemeToCompare) {
+		if (this.getStart().after(schemeToCompare.getStart())
+				&& this.getStart().before(schemeToCompare.getEnd()))
+			return true;
+		if (this.getEnd().after(schemeToCompare.getStart())
+				&& this.getEnd().before(schemeToCompare.getEnd()))
+			return true;
+
+		return false;
+	}
+
 }

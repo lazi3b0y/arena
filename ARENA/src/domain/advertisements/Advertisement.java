@@ -2,10 +2,12 @@ package domain.advertisements;
 
 import java.util.Random;
 
+import domain.users.Advertiser;
+
 public class Advertisement {
 	
 	private int advID;
-	private int ownerID; /* Temp, could be changed to Advertiser object instead if needed.  */
+	private Advertiser owner;
 	private AdvLocation advertisementLocation;
 	private AdvScheme advertisementScheme;
 	private int clicks = 0;
@@ -13,21 +15,33 @@ public class Advertisement {
 	
 	private AdvApplicationStatus advStatus = AdvApplicationStatus.PENDING;
 	
-	public Advertisement(int advID, AdvLocation advLocation, AdvScheme advScheme) {
+	public Advertisement(int advID, Advertiser owner, AdvLocation advLocation, AdvScheme advScheme) {
 		this.setAdvID(advID);
 		this.setAdvertisementLocation(advLocation);
 		this.setAdvertisementScheme(advScheme);
+		this.setOwner(owner);
 	}
 	
-	public Advertisement(AdvLocation advLocation, AdvScheme advScheme) {
+	public Advertisement(Advertiser owner, AdvLocation advLocation, AdvScheme advScheme) {
 		this.setAdvertisementLocation(advLocation);
 		this.setAdvertisementScheme(advScheme);
+		this.setOwner(owner);
 		this.advID = new Random().nextInt(999);
 	}
 	
-	public void addClick() {
-		this.setClicks(this.getClicks() + 1);
+	public void addClick() throws EmptyBalanceException {
+		chargeAdvertiser();
+		this.clicks++;;
 	}
+	
+	public void chargeAdvertiser() throws EmptyBalanceException {
+		double amount = advertisementLocation.getMoneyPerClick();
+		double delta = owner.getAccount().getBalance() - amount;
+		if (delta <= 0.0)
+			throw new EmptyBalanceException("Advertiser out of money");
+		owner.charge(amount);
+	}
+	
 	
 	public void resetClicks() {
 		this.setClicks(0);
@@ -71,5 +85,13 @@ public class Advertisement {
 
 	public void setClicks(int clicks) {
 		this.clicks = clicks;
+	}
+
+	public Advertiser getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Advertiser owner) {
+		this.owner = owner;
 	}
 }

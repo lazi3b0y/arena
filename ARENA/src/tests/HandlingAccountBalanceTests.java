@@ -10,34 +10,51 @@ import org.junit.Test;
 import domain.Account;
 import domain.advertisements.AdvLocation;
 import domain.advertisements.Advertisement;
+import domain.advertisements.EmptyBalanceException;
 import domain.advertisements.FrontAdvLocation;
 import domain.users.Advertiser;
 import domain.users.User;
 
 public class HandlingAccountBalanceTests {
+	
+	@Test(expected = EmptyBalanceException.class)
+	public void advertisementThrowsExceptionWhenAdvertiserNoMoney() {
+		Advertiser advertiser = new Advertiser("Test");
+		advertiser.setAccount(new Account(0));
+		
+		AdvLocation loc = new FrontAdvLocation(null);
+		Advertisement adv = new Advertisement(advertiser, loc, null);
+		adv.addClick();
+	}
 
 	@Test
-	public void clickingOnAdvertisementsGeneratesMoneyToAdvOwnerBalance() {
+	public void clickingOnAdvertisementsRemovesMoneyFromOwnersAccountBalance() {
 		// Test user
 		Advertiser advertiser = new Advertiser("Test");
+		double testBalance = 100;
+		
+		Account account = new Account(testBalance);
+		advertiser.setAccount(account);
 		
 		// Create some test advertisements
 		List<Advertisement> ads = new ArrayList<>();
 		AdvLocation loc1 = new FrontAdvLocation(null);
 		AdvLocation loc2 = new FrontAdvLocation(null);
-		Advertisement adv1 = new Advertisement(loc1, null);
-		Advertisement adv2 = new Advertisement(loc2, null);
+		Advertisement adv1 = new Advertisement(advertiser, loc1, null);
+		Advertisement adv2 = new Advertisement(advertiser, loc2, null);
 		ads.add(adv1);
 		ads.add(adv2);
 		
 		// Add some clicks
+		try {
 		adv1.addClick();
 		adv1.addClick();
 		adv2.addClick();
+		} catch (EmptyBalanceException emptyBalanceEx) { }
 
 		advertiser.setAdvertisements(ads);
-		
-		assertEquals(loc1.getMoneyPerClick() * 3, advertiser.getTotalConvertableMoney(), 1e-15);
+		double totalCharge = loc1.getMoneyPerClick() * 3;
+		assertEquals(testBalance - totalCharge, advertiser.getAccount().getBalance(), 1e-15);
 	}
 	
 	@Test
