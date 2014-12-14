@@ -13,6 +13,8 @@ import networkgame.client.dialogs.ConnectionDialog;
 import networkgame.server.GameServer;
 
 public class GameFrame extends JPanel{	
+	private static final long serialVersionUID = -4570688582586300185L;
+	
 	private JButton JoinGame;
 	private JButton CreateGame;
 	private JLabel FourInRow;
@@ -22,7 +24,6 @@ public class GameFrame extends JPanel{
 	private ConnectionDialog CD;
 	
 	public GameFrame() {
-		
 		setLayout(null);
 		
 		FourInRow = new JLabel("Four In Row:");
@@ -37,7 +38,6 @@ public class GameFrame extends JPanel{
 		CreateGame.setBounds(400, 0, 200, 50);
 		add(CreateGame);
 		GameListeners();
-		
 	}
 	
 	private void GameListeners() {
@@ -70,7 +70,7 @@ public class GameFrame extends JPanel{
 					e1.printStackTrace();
 				}
 				try {
-					GC = new GameClient(ip);
+					GC = new GameClient("localhost");
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

@@ -15,20 +15,10 @@ public class ConnectionDialog extends JFrame{
 	private String port;
 	private JButton Connect;
 	private JLabel ipLabel;
-	private JLabel portLabel;
 	private TextField ipTextField;
 	private TextField portTextField;
 	
-	public ConnectionDialog(){
-		
-		/*portLabel = new JLabel("Enter port number: ");
-		portLabel.setBounds(155, 25, 110, 25);
-		add(portLabel);*/
-		
-		/*portTextField = new TextField(25);
-		portTextField.setBounds(155, 50, 100, 25);
-		add(portTextField);*/
-		
+	public ConnectionDialog(){		
 		ipLabel = new JLabel("Enter ip adress: ");
 		ipLabel.setBounds(50, 25, 110, 25);
 		add(ipLabel);
