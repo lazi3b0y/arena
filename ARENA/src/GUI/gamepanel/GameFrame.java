@@ -24,8 +24,7 @@ public class GameFrame extends JPanel{
 	public GameFrame() {
 		
 		setLayout(null);
-		GameListeners();
-		
+		//GameListeners();
 		
 		FourInRow = new JLabel("Four In Row:");
 		FourInRow.setBounds(65, 0, 80, 50);
@@ -45,9 +44,9 @@ public class GameFrame extends JPanel{
 		
 		JoinGame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				
-				
-				try {
+				//CD = new ConnectionDialog();
+				//ip = CD.getIp();
+				/*try {
 					GC = new GameClient(ip);
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
@@ -55,13 +54,13 @@ public class GameFrame extends JPanel{
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
+				}*/
 			}
 		});
 		
 		CreateGame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				try {
+				/*try {
 					GS = new GameServer();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -75,7 +74,7 @@ public class GameFrame extends JPanel{
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
+				}*/
 			}
 		});
 		
