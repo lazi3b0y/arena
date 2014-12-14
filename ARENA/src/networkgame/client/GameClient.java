@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import networkgame.interf.Constant;
 
 public class GameClient {
-    public static void main(String[] args) throws RemoteException, Exception {
+    public GameClient() throws RemoteException, Exception {
     	// Getting the registry, and instantiating clientCom.
     	System.out.println("Fetched registry from " + Constant.RMI_LOCALHOST + ":" + Constant.RMI_PORT);
     	Registry registry = LocateRegistry.getRegistry(Constant.RMI_LOCALHOST, Constant.RMI_PORT);

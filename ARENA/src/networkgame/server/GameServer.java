@@ -12,7 +12,7 @@ import networkgame.interf.Constant;
 import networkgame.server.gui.MainFrame;
 
 public class GameServer {
-    public static void main(String[] args) throws Exception {
+    public GameServer() throws Exception {
     	Registry registry = null;
     	ServerCom serverCom = null;
     	SetUpGame setUpGame = null;
