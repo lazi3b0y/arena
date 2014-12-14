@@ -18,18 +18,16 @@ import networkgame.interf.RemoteServerCom;
 public class ClientCom extends UnicastRemoteObject implements RemoteClientCom {
 	private static final long serialVersionUID = 7572721052589916852L;
 	
-    Registry registry;
-    RemoteServerCom serverCom;
-	MoveDialog moveDialog;
-    GameBoard gameBoard;
-    GameFrame gameFrame;
-    SetupGameDialog setupGameDialog;
-    WaitingDialog waitingDialog;
-    WaitingForMoveDialog waitingForMoveDialog;
-    int idTag;
+    private RemoteServerCom serverCom;
+	private MoveDialog moveDialog;
+    private GameBoard gameBoard;
+    private GameFrame gameFrame;
+    private SetupGameDialog setupGameDialog;
+    private WaitingDialog waitingDialog;
+    private WaitingForMoveDialog waitingForMoveDialog;
+    private int idTag;
     
     public ClientCom(Registry registry) throws RemoteException, NotBoundException {
-    	this.registry = registry;
 		this.serverCom = (RemoteServerCom) registry.lookup(Constant.SERVERCOM_ID);
 		setupGameDialog = null;
     	moveDialog = null;

@@ -10,16 +10,13 @@ import javax.swing.JOptionPane;
 import networkgame.interf.Constant;
 
 public class GameClient {
+	private Registry registry;
+	private ClientCom clientCom;
+	
     public GameClient(String ip) throws RemoteException, Exception {
-    	// Getting the registry, and instantiating clientCom.
-    	System.out.println("Fetched registry from " + Constant.RMI_LOCALHOST + ":" + Constant.RMI_PORT);
-    	Registry registry = LocateRegistry.getRegistry(Constant.RMI_IP, Constant.RMI_PORT);
-    	ClientCom clientCom = new ClientCom(registry);
-    	System.out.println("clientCom instantiated.");
+    	registry = LocateRegistry.getRegistry(ip, Constant.RMI_PORT);
+    	clientCom = new ClientCom(registry);
     	
-    	// Trying to bind the object clientCom to a ID in the registry.
-    	// If it fails the client terminates.
-    	System.out.println("Bindning now...");
     	try {
 			registry.bind(Constant.CLIENTCOM1_ID, clientCom);
 		} catch (AlreadyBoundException e) {
@@ -29,10 +26,8 @@ public class GameClient {
 			} catch (AlreadyBoundException e1) {
 				e1.printStackTrace();
 				JOptionPane.showMessageDialog(null, e.toString() + "\n\nOops, two players are already bound to the current server.", "AlreadyBoundException",JOptionPane.INFORMATION_MESSAGE);
-				System.out.println("AlreadyBoundException encountered twice, binding failed. Terminating client.");
 				System.exit(0);
 			}
 		}
-    	System.out.println("Binding successful!");
     }
 }

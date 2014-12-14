@@ -15,9 +15,9 @@ import javax.swing.WindowConstants;
 import networkgame.interf.RemoteServerCom;
 
 public class SetupGameDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2417178238644234898L;
 	
-    private JTextField playerTextField;
+	private JTextField playerTextField;
     private JButton jbtOk;
     private GridLayout grid = new GridLayout(0, 1);
     private RemoteServerCom serverCom;

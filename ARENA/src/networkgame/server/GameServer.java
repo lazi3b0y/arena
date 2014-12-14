@@ -12,11 +12,16 @@ import networkgame.interf.Constant;
 import networkgame.server.gui.MainFrame;
 
 public class GameServer {
+	private Registry registry;
+	private ServerCom serverCom;
+	private SetUpGame setUpGame;
+	private MainFrame mainFrame;
+	
     public GameServer() throws Exception {
-    	Registry registry = null;
-    	ServerCom serverCom = null;
-    	SetUpGame setUpGame = null;
-    	MainFrame mainFrame = new MainFrame();
+    	registry = null;
+    	serverCom = null;
+    	setUpGame = null;
+    	mainFrame = new MainFrame();
     	
 		try {
 			registry = LocateRegistry.createRegistry(Constant.RMI_PORT);

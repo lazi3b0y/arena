@@ -4,7 +4,8 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 public class WaitingForMoveDialog extends JDialog {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -6104775650549428851L;
+	
 	private JLabel WFMLabel;
 	public WaitingForMoveDialog(){
 		
