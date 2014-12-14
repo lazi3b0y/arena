@@ -7,10 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import networkgame.client.GameClient;
+import networkgame.server.GameServer;
+
 public class GameFrame extends JPanel{	
 	private JButton JoinGame;
 	private JButton CreateGame;
 	private JLabel FourInRow;
+	private GameClient GC;
+	private GameServer GS;
 	
 	public GameFrame() {
 		
@@ -41,6 +46,13 @@ public class GameFrame extends JPanel{
 		
 		CreateGame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				try {
+					GS = new GameServer();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 			}
 		});
