@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class ConnectionDialog extends JFrame{
+	private static final long serialVersionUID = 2210323378883010622L;
+	
 	private String ip;
 	private String port;
 	private JButton Connect;
