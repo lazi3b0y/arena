@@ -35,4 +35,12 @@ public class GameClient {
 		}
     	System.out.println("Binding successful!");
     }
+    
+    public void createGame() {
+    	
+    }
+    
+    public void joinGame() {
+    	
+    }
 }
