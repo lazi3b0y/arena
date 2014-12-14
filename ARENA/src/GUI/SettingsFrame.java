@@ -10,11 +10,13 @@ public class SettingsFrame extends JFrame{
 	
 	public SettingsFrame() {
 		text = new JLabel("Settings goes here.");
+		text.setBounds(240, 125, 200, 50);
 		setSize(600, 350);
-		setLayout(new BorderLayout());
+		setLayout(null);
+		setTitle("Settings Window");
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		add(text, BorderLayout.CENTER);
+		add(text);
 	}
 }
