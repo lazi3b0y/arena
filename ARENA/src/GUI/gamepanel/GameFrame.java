@@ -18,7 +18,7 @@ public class GameFrame extends JPanel{
 	private JLabel FourInRow;
 	private GameClient GC;
 	private GameServer GS;
-	private String ip = "";
+	private String ip = null;
 	private ConnectionDialog CD;
 	
 	public GameFrame() {
@@ -44,10 +44,11 @@ public class GameFrame extends JPanel{
 		
 		JoinGame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				CD = new ConnectionDialog();	
-				while(ip.equals("")){
+				CD = new ConnectionDialog();
+				while(ip == null){
 					ip = CD.getIp();
 				}
+					
 				try {
 					GC = new GameClient(ip);
 				} catch (RemoteException e1) {

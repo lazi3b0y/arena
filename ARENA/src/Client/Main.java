@@ -1,7 +1,6 @@
 package Client;
 
-import GUI.*;
-import javax.swing.*;
+import GUI.LoginWindow;
 
 public class Main {
 	/*Potatis*/
