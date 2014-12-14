@@ -1,20 +1,19 @@
 package networkgame.client;
 
-import networkgame.client.gui.GameBoard;
-import networkgame.client.gui.GameFrame;
-
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import networkgame.interf.Constant;
-import networkgame.interf.RemoteClientCom;
-import networkgame.interf.RemoteServerCom;
-
 import networkgame.client.dialogs.MoveDialog;
 import networkgame.client.dialogs.SetupGameDialog;
 import networkgame.client.dialogs.WaitingDialog;
+import networkgame.client.dialogs.WaitingForMoveDialog;
+import networkgame.client.gui.GameBoard;
+import networkgame.client.gui.GameFrame;
+import networkgame.interf.Constant;
+import networkgame.interf.RemoteClientCom;
+import networkgame.interf.RemoteServerCom;
 
 public class ClientCom extends UnicastRemoteObject implements RemoteClientCom {
 	private static final long serialVersionUID = 7572721052589916852L;
@@ -26,6 +25,7 @@ public class ClientCom extends UnicastRemoteObject implements RemoteClientCom {
     GameFrame gameFrame;
     SetupGameDialog setupGameDialog;
     WaitingDialog waitingDialog;
+    WaitingForMoveDialog waitingForMoveDialog;
     int idTag;
     
     public ClientCom(Registry registry) throws RemoteException, NotBoundException {
@@ -35,6 +35,7 @@ public class ClientCom extends UnicastRemoteObject implements RemoteClientCom {
     	moveDialog = null;
     	gameBoard = null;
     	gameFrame = null;
+    	waitingForMoveDialog = null;
     	waitingDialog = new WaitingDialog();
     }
     
@@ -48,9 +49,9 @@ public class ClientCom extends UnicastRemoteObject implements RemoteClientCom {
     public void setGameFrameToVisible() throws Exception {
     	if (gameFrame == null) {
     		if (idTag == 1) {
-    			gameFrame = new GameFrame("Player 1");
+    			gameFrame = new GameFrame("Player 1", serverCom);
     		} else {
-    			gameFrame = new GameFrame("Player 2");
+    			gameFrame = new GameFrame("Player 2", serverCom);
     		}
     	}
     	gameFrame.setVisible(true);
@@ -117,7 +118,19 @@ public class ClientCom extends UnicastRemoteObject implements RemoteClientCom {
     }
     
     public void disposeWaitDialog() {
-    	waitingDialog.disposeDialog();
+    	waitingDialog.dispose();
     	waitingDialog = null;
+    }
+    
+    public void displayWaitingForMoveDialog() {
+    	if (waitingForMoveDialog == null) {
+    		waitingForMoveDialog = new WaitingForMoveDialog();
+    	}
+    	waitingForMoveDialog.setVisible(true);
+    }
+    
+    public void disposeWaitingForMoveDialog() {
+    	waitingForMoveDialog.dispose();
+    	waitingForMoveDialog = null;
     }
 }

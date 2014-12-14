@@ -7,7 +7,7 @@ public class Constant {
 	public static final String RMI_LOCALHOST = "127.0.0.1";
 	public static final String RMI_IP = "192.168.0.14";
 	public static final String RMI_INTERNET = "83.252.117.97";
-	public static final int RMI_PORT = 222;
+	public static final int RMI_PORT = 1337;
 	public static final int COLUMNS = 7;
 	public static final int ROWS = 6;
 }

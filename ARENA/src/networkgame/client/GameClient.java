@@ -13,7 +13,7 @@ public class GameClient {
     public GameClient() throws RemoteException, Exception {
     	// Getting the registry, and instantiating clientCom.
     	System.out.println("Fetched registry from " + Constant.RMI_LOCALHOST + ":" + Constant.RMI_PORT);
-    	Registry registry = LocateRegistry.getRegistry(Constant.RMI_LOCALHOST, Constant.RMI_PORT);
+    	Registry registry = LocateRegistry.getRegistry(Constant.RMI_IP, Constant.RMI_PORT);
     	ClientCom clientCom = new ClientCom(registry);
     	System.out.println("clientCom instantiated.");
     	

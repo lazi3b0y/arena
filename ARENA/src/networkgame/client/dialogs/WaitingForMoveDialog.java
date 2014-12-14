@@ -21,5 +21,9 @@ public class WaitingForMoveDialog extends JDialog {
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		
 	}
+	
+	public void disposeDialog() {
+		dispose();
+	}
 
 }

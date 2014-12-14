@@ -12,7 +12,7 @@ import networkgame.server.exceptions.WinningMoveException;
 import networkgame.server.gui.MainFrame;
 
 public class GameManager {
-	RemoteClientCom clientCom1, clientCom2;
+	private RemoteClientCom clientCom1, clientCom2;
     private Player player1;
     private Player player2;
     private MainFrame mainFrame;
@@ -33,15 +33,15 @@ public class GameManager {
         while (true) {
             //Requesting move from player.
             if (nextPlayer == 1) {
-            	clientCom2.displayWaitDialog();
+            	clientCom2.displayWaitingForMoveDialog();
                 move = player1.GetNewMove();
                 mainFrame.addLabel(new JLabel("Player 1 choose column " + move));
-                clientCom2.disposeWaitDialog();
+                clientCom2.disposeWaitingForMoveDialog();
             } else {
-            	clientCom1.displayWaitDialog();
+            	clientCom1.displayWaitingForMoveDialog();
                 move = player2.GetNewMove();
                 mainFrame.addLabel(new JLabel("Player 2 choose column " + move));
-                clientCom1.disposeWaitDialog();
+                clientCom1.disposeWaitingForMoveDialog();
             }
             //Trying to make move at selected column.
             try {

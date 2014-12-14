@@ -5,14 +5,12 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import networkgame.interf.Constant;
 import networkgame.interf.RemoteServerCom;
 
 public class GameFrame extends JFrame implements ActionListener {
@@ -24,12 +22,11 @@ public class GameFrame extends JFrame implements ActionListener {
     private JButton quitButton = new JButton("Quit");
     private Color color = new Color(255, 51, 51);
     private GameBoard gameBoard = new GameBoard();
-    private Registry registry = LocateRegistry.getRegistry("localhost", Constant.RMI_PORT);
     private RemoteServerCom serverCom;
     
-    public GameFrame(String title) throws Exception {
+    public GameFrame(String title, RemoteServerCom serverCom) throws Exception {
     	super(title);
-		serverCom = (RemoteServerCom) registry.lookup(Constant.SERVERCOM_ID);
+		this.serverCom = serverCom;
         setSize(500, 500);
         setVisible(false);
         setLocationRelativeTo(null);
