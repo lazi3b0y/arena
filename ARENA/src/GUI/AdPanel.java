@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 
 public class AdPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private ImageIcon adImage, adBubble;
-	private JLabel labelAd, labelBubble;
+	private ImageIcon adImage;
+	private JLabel labelAd;
 	
 	public AdPanel(){
 		adImage = new ImageIcon("src/GUI/ads2.0.png");
