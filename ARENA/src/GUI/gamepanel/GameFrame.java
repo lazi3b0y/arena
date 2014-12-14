@@ -2,12 +2,14 @@ package GUI.gamepanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import networkgame.client.GameClient;
+import networkgame.client.dialogs.ConnectionDialog;
 import networkgame.server.GameServer;
 
 public class GameFrame extends JPanel{	
@@ -16,11 +18,14 @@ public class GameFrame extends JPanel{
 	private JLabel FourInRow;
 	private GameClient GC;
 	private GameServer GS;
+	private String ip;
+	private ConnectionDialog CD;
 	
 	public GameFrame() {
 		
 		setLayout(null);
 		GameListeners();
+		
 		
 		FourInRow = new JLabel("Four In Row:");
 		FourInRow.setBounds(65, 0, 80, 50);
@@ -41,6 +46,16 @@ public class GameFrame extends JPanel{
 		JoinGame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				
+				
+				try {
+					GC = new GameClient(ip);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -52,8 +67,15 @@ public class GameFrame extends JPanel{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
+				try {
+					GC = new GameClient(ip);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
