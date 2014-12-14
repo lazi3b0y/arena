@@ -40,20 +40,21 @@ public class GameFrame extends JPanel{
 		GameListeners();
 	}
 	
+	public void joinGame() throws RemoteException, Exception {
+		CD = new ConnectionDialog();
+		CD.setVisible(true);
+		while(ip == null) {
+			ip = CD.getIp();
+		}
+		GC = new GameClient(ip);
+	}
+	
 	private void GameListeners() {
 		
 		JoinGame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				CD = new ConnectionDialog();
-				while(ip == null){
-					ip = CD.getIp();
-				}
-					
 				try {
-					GC = new GameClient(ip);
-				} catch (RemoteException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					joinGame();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

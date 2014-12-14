@@ -16,9 +16,9 @@ public class ConnectionDialog extends JFrame{
 	private JButton Connect;
 	private JLabel ipLabel;
 	private TextField ipTextField;
-	private TextField portTextField;
 	
-	public ConnectionDialog(){		
+	public ConnectionDialog(){
+		setLayout(null);
 		ipLabel = new JLabel("Enter ip adress: ");
 		ipLabel.setBounds(50, 25, 110, 25);
 		add(ipLabel);
@@ -31,23 +31,21 @@ public class ConnectionDialog extends JFrame{
 		Connect.setBounds(50, 100, 100, 25);
 		add(Connect);
 		
-		ConnectionListener();
-		setLayout(null);
 		setTitle("Hellow World!");
 		setSize(300, 180);
-		setVisible(true);
+		setVisible(false);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		ConnectionListener();
 	}
 
 	public void ConnectionListener() {
 		
 		Connect.addActionListener(new ActionListener (){
 			public void actionPerformed(ActionEvent e){
-				if(!ipTextField.getText().equals("") && !portTextField.getText().equals("")){
+				if(!ipTextField.getText().equals("")){
 					ip = ipTextField.getText();
-					port = portTextField.getText();
 					dispose();
 				}
 			}
