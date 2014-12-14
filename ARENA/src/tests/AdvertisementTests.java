@@ -31,6 +31,11 @@ public class AdvertisementTests {
 	}
 	
 	@Test
+	public void canGetAdvertisements() {
+		
+	}
+	
+	@Test
 	public void canDefineValidAdvSchemes() {
 		
 		// Test input

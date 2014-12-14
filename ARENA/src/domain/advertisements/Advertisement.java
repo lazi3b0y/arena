@@ -1,6 +1,12 @@
 package domain.advertisements;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
+
+import javax.imageio.ImageIO;
 
 import domain.users.Advertiser;
 
@@ -10,23 +16,26 @@ public class Advertisement {
 	private Advertiser owner;
 	private AdvLocation advertisementLocation;
 	private AdvScheme advertisementScheme;
+	private Image image;
 	private int clicks = 0;
 	
 	
 	private AdvApplicationStatus advStatus = AdvApplicationStatus.PENDING;
 	
-	public Advertisement(int advID, Advertiser owner, AdvLocation advLocation, AdvScheme advScheme) {
+	public Advertisement(int advID, Advertiser owner, AdvLocation advLocation, AdvScheme advScheme, File img) {
 		this.setAdvID(advID);
 		this.setAdvertisementLocation(advLocation);
 		this.setAdvertisementScheme(advScheme);
-		this.setOwner(owner);
+		this.setOwner(owner); 
+		setImage(getImage(img));
 	}
 	
-	public Advertisement(Advertiser owner, AdvLocation advLocation, AdvScheme advScheme) {
+	public Advertisement(Advertiser owner, AdvLocation advLocation, AdvScheme advScheme, File img) {
 		this.setAdvertisementLocation(advLocation);
 		this.setAdvertisementScheme(advScheme);
 		this.setOwner(owner);
 		this.advID = new Random().nextInt(999);
+		setImage(getImage(img));
 	}
 	
 	public void addClick() throws EmptyBalanceException {
@@ -47,6 +56,18 @@ public class Advertisement {
 		this.setClicks(0);
 	}
 
+	private BufferedImage getImage(File imgFile) {
+		if (imgFile == null) return null;
+		BufferedImage img = null;
+		/* Kind of violates SRP, better to move this responsibility to a utility class or something like that */ 
+		try {
+			img = ImageIO.read(imgFile);
+		} catch (IOException ex) {
+			System.out.println("Could not load advertisement image. " + ex.getMessage());
+		}
+		return img;
+	}
+	
 	public AdvLocation getAdvertisementLocation() {
 		return advertisementLocation;
 	}
@@ -93,5 +114,13 @@ public class Advertisement {
 
 	public void setOwner(Advertiser owner) {
 		this.owner = owner;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(BufferedImage image) {
+		this.image = image;
 	}
 }

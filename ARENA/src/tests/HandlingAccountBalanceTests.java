@@ -23,7 +23,7 @@ public class HandlingAccountBalanceTests {
 		advertiser.setAccount(new Account(0));
 		
 		AdvLocation loc = new FrontAdvLocation(null);
-		Advertisement adv = new Advertisement(advertiser, loc, null);
+		Advertisement adv = new Advertisement(advertiser, loc, null, null);
 		adv.addClick();
 	}
 
@@ -40,8 +40,8 @@ public class HandlingAccountBalanceTests {
 		List<Advertisement> ads = new ArrayList<>();
 		AdvLocation loc1 = new FrontAdvLocation(null);
 		AdvLocation loc2 = new FrontAdvLocation(null);
-		Advertisement adv1 = new Advertisement(advertiser, loc1, null);
-		Advertisement adv2 = new Advertisement(advertiser, loc2, null);
+		Advertisement adv1 = new Advertisement(advertiser, loc1, null, null);
+		Advertisement adv2 = new Advertisement(advertiser, loc2, null, null);
 		ads.add(adv1);
 		ads.add(adv2);
 		

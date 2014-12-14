@@ -54,7 +54,7 @@ public class Advertiser extends User {
 		this.account.withdraw(amount);
 	}
 
-	public List<Advertisement> getAdvertisements() {
+	public Iterable<Advertisement> getAdvertisements() {
 		return advertisements;
 	}
 
